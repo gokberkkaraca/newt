@@ -37,7 +37,7 @@ module.exports = function() {
 
     $.ajax({
         type: 'post',
-        url: "http://localhost:4567/cd2sbgnml",
+        url: "http://localhost:8080/cd2sbgnml",
         data: {xml: xml},
         success: function (data) {
             var chiseInstance = appUtilities.getActiveChiseInstance();
@@ -52,14 +52,14 @@ module.exports = function() {
 
       $.ajax({
           type: 'post',
-          url: "http://localhost:4567/sbgnml2cd",
+          url: "http://localhost:8080/sbgnml2cd",
           data: {xml: xml},
           success: function (data) {
             fileSaveView.render("celldesigner", null, data);
           }
       })
   }
-  
+
   function loadSample(filename) {
 
     // use the active chise instance
@@ -897,7 +897,7 @@ module.exports = function() {
     $("#export-as-sbgnml3-file").click(function (evt) {
       fileSaveView.render("sbgnml", "0.3");
     });
-    
+
     $("#export-as-celldesigner-file").click(function (evt) {
         var chiseInstance = appUtilities.getActiveChiseInstance();
         var sbgnml = chiseInstance.createSbgnml();
